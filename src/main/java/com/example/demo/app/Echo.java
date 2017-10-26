@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 /**
  * Created by srk on 26/10/17.
@@ -62,5 +63,11 @@ public interface Echo {
     @Produces({ MediaType.APPLICATION_JSON })
     @Path("/name/{givenname}/query")
     public String getYourNameWithAge(@PathParam("givenname") String givenname, @QueryParam("age") String age);
+
+    @GET
+    @Consumes({ MediaType.APPLICATION_JSON })
+    @Produces({ MediaType.APPLICATION_JSON })
+    @Path("/company/{companyname}/all")
+    public List<String> getEmployeesByCompany(@PathParam("companyname") String companyname);
 }
 
